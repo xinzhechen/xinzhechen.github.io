@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>博客详情页</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog_detail.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <img src="image/log.png" alt="">
+        <span class="title">青翼的blog</span>
+         <!-- 使用 span 把左右两侧的元素给撑开 -->
+         <span class="spacer"></span>
+        <a href="index.html">主页</a>
+        <a href="blog_edit.html">写博客</a>
+        <a href="blog_login.html">注销</a>
+    </div>
+    <!-- 版心 -->
+    <div class="container">
+        <!-- 左侧区域，显示用户信息 -->
+        <div class="container-left">
+            <!-- 用户详情 -->
+            <div class="card">
+                <!-- 用户的头像 -->
+                <img src="image/head.jpg" alt="">
+                <!-- 用户名 -->
+                <h3>青翼</h3>
+                <!-- 其它信息 -->
+                <a href="https://blog.csdn.net/m0_61035708?type=blog" style="color:rgb(186, 12, 244);">CSDN 地址</a>
+                <a href="https://qingyiyi.github.io/" style="color:rgb(186, 12, 244);">GitHub 地址</a>
+                <!-- 文章分类 -->
+                <div class="counter">
+                    <span>文章</span>
+                    <span>分类</span>
+                </div>
+                <div class="counter">
+                    <span>?</span>
+                    <span>?</span>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧区域，显示博客列表 -->
+        <div class="container-right">
+            <!-- 使用这个 div 来放博客内容 -->
+            <div class="blog-content">
+                <!-- 博客的标题 -->
+                <h1><center>如何去制作一个lapack库的dll链接文件</center></h1>
+                <!-- 博客的日期 -->
+                <div class="date">2022-5-14</div>
+                <!-- 博客的内容 -->
+                <div class="detail">
+                    <ol>
+                    <li>
+                    <p>下载lapack库</p>
+                    </li>
+                    <li>
+                    <p>打开CMake</p>
+                    </li>
+                    <li>
+                    <p>源程序指向下载的lapack文件夹</p>
+                    </li>
+                    </ol>
+                    <p><img width=90% src="image/blog_1/image-20220820095110121.png" alt=""></p>
+                    <ol start="4">
+                    <li>
+                    <p>buid文件夹指向生成的地方</p>
+                    </li>
+                    <li>
+                    <p>再点击左下角Configure配置</p>
+                    </li>
+                    <li>
+                    <p>选择MinGW和本地编译器</p>
+                    </li>
+                    </ol>
+                    <p><img width=90% src="image/blog_1/wps24C4.jpg" alt=""></p>
+                    <ol start="7">
+                    <li>编译器和fortran分别指向MinGW中的gcc.exe和gfortran.exe</li>
+                    </ol>
+                    <p><img width=90% src="image/blog_1/wps24C5.tmp.jpg" alt=""></p>
+                    <ol start="8">
+                    <li>等待配置好之后勾选'BUILD_SHARED_LIBS‘和'CMAKE_GNUtoMS'这两项，并再次点击configure</li>
+                    </ol>
+                    <p><img width=90% src="image/blog_1/wps24C6.tmp.jpg" alt=""></p>
+                    <ol start="9">
+                    <li>
+                    <p>等待完成之后，点击Generate生成</p>
+                    </li>
+                    <li>
+                    <p>关闭CMake</p>
+                    </li>
+                    <li>
+                    <p>打开cmd，并用cd命令进入build的文件夹（即生成文件存放的文件夹）</p>
+                    </li>
+                    <li>
+                    <p>输入命令mingw32-make（这里我直接运行的MinGW中的make.exe程序）</p>
+                    </li>
+                    </ol>
+                    <p><img width=90% src="image/blog_1/wps24CC.tmp.jpg" alt=""></p>
+                    <ol start="13">
+                    <li>等待运行结束</li>
+                    </ol>
+                    <p>进入build的文件夹中bin文件夹中存放的就是dll文件，lib文件夹存放的dll文件以及dll.a文件</p>
+                    <p><img width=90% src="image/blog_1/wps24CE.tmp.jpg" alt=""></p>
+                    <p>32位的需要改path同时版本不能过高，目前测试是7.3.0版本可以，不知道以后新版本会不会变。</p>    
+
+                </div>
+        </div>
+</body>
+</html>
